@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Procedures</title>
+    <style>
+        .image-wrapper {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .image-wrapper img {
+            width: 80%;
+            max-width: 400px;
+            margin-right: 20px;
+            border: 2px solid #ccc;
+            transition: transform 0.3s ease; /* Smooth transition for hover effect */
+        }
+        .image-wrapper img:hover {
+            transform: scale(1.2); /* Enlarge the image on hover */
+        }
+        .image-wrapper textarea {
+            width: 100%;
+            max-width: 300px;
+            height: 100px;
+            resize: vertical;
+        }
+    </style>
 </head>
 <body>
-    <h1>How We Built Images and Ran Containers</h1>
-    
+    <h1>How I Built Images and Ran Containers</h1>
+    <div id="image-container">
+        <!-- Images and textboxes will be dynamically added here -->
+    </div>
+
+    <script>
+        // JavaScript to dynamically add images and textboxes
+        const imageContainer = document.getElementById('image-container');
+        for (let i = 107; i <= 177; i++) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'image-wrapper';
+
+            const img = document.createElement('img');
+            img.src = `images/Screenshot (${i}).png`;
+            img.alt = `Image ${i}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.placeholder = `Write details about Image ${i}`;
+
+            wrapper.appendChild(img);
+            wrapper.appendChild(textarea);
+            imageContainer.appendChild(wrapper);
+        }
+    </script>
 </body>
 </html>
